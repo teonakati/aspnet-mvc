@@ -1,0 +1,64 @@
+﻿@model ProjetoFinal.Models.Aluno
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Aluno</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Cpf)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Telefone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DataInscricao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DataInscricao)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+</body>
+</html>

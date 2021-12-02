@@ -1,0 +1,69 @@
+﻿@model ProjetoFinal.Models.Curso
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhes</title>
+</head>
+<body>
+    <div>
+        <h4>Curso</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Quantidade de Inscritos
+            </dt>
+
+            <dd>
+                @ViewBag.Inscritos
+            </dd>
+
+            <dt>
+                Valor do Curso
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Valor)
+            </dd>
+
+            <dt>
+                Saldo Acumulado
+            </dt>
+
+            <dd>
+                @ViewBag.Saldo
+            </dd>
+
+        </dl>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Nome Inscrito
+            </th>
+            <th>
+                CPF
+            </th>
+        </tr>
+
+        @foreach (var item in (ViewBag.Alunos as List<ProjetoFinal.Models.Aluno>))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+</body>
+</html>

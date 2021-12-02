@@ -1,0 +1,123 @@
+﻿@model ProjetoFinal.Models.Aluno
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Aluno</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+                    @if (@TempData["nome"] != null)
+                    {
+                        <div class="text-danger">
+                            @TempData["nome"]
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+
+                    @if (@TempData["cpf"] != null)
+                    {
+                        <div class="text-danger">
+                            @TempData["cpf"]
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                    @if (@TempData["email"] != null)
+                    {
+                        <div class="text-danger">
+                            @TempData["email"]
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+
+                    @if (@TempData["telefone"] != null)
+                    {
+                        <div class="text-danger">
+                            @TempData["telefone"]
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CursoId, "Curso", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CursoId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CursoId, "", new { @class = "text-danger" })
+                    <span id="valor"></span>
+                    <span id="vagas"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+            @if (@TempData["cpfCadastrado"] != null)
+            {
+                <div class="alert alert-warning">
+                    @TempData["cpfCadastrado"]
+                </div>
+            }
+
+            @if (@TempData["limiteVagas"] != null)
+            {
+                <div class="alert alert-warning">
+                    @TempData["limiteVagas"]
+                </div>
+            }
+
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Voltar", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script src="~/Scripts/curso.js"></script>
+
+    }
+</body>
+</html>
